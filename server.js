@@ -107,12 +107,6 @@ app.use(cors({
     credentials: true
 }));
 
-// ✅ Allow OPTIONS preflight
-app.options('*', cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
-
 app.use(express.json());    // All the requests coming to the server will be parsed through the json method
 app.use(cookieParser());
 
@@ -139,6 +133,7 @@ app.listen(port,()=>{
     console.log(`Server is runnning on http://localhost:${port} 🛜`)
 
 })
+
 
 
 
