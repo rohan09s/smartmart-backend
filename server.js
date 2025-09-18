@@ -98,17 +98,19 @@ await connectCloudinary()
 const allowedOrigins = ['http://localhost:5173', 'https://smartmart-8xwu.onrender.com']
 
 
-app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks)
+
 
 
 // Middleware Configuration
-app.use(express.json());    // All the requests coming to the server will be parsed through the json method
-app.use(cookieParser());
 app.use(cors({
     origin: allowedOrigins, 
     credentials: true
 }));
 
+app.use(express.json());    // All the requests coming to the server will be parsed through the json method
+app.use(cookieParser());
+
+app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks)
 
 // To check if the API is working or not
 app.get('/', (req, res) => res.send("API is Working"))
@@ -131,5 +133,6 @@ app.listen(port,()=>{
     console.log(`Server is runnning on http://localhost:${port} 🛜`)
 
 })
+
 
 
