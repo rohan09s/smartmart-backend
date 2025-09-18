@@ -95,7 +95,7 @@ await connectDB()
 await connectCloudinary()
 
 // Allow Multiple Origins
-const allowedOrigins = ['http://localhost:5173', 'https://smartmart-8xwu.onrender.com']
+const allowedOrigins = ['http://localhost:5173']
 
 
 
@@ -105,6 +105,12 @@ const allowedOrigins = ['http://localhost:5173', 'https://smartmart-8xwu.onrende
 app.use(cors({
     origin: allowedOrigins, 
     credentials: true
+}));
+
+// ✅ Allow OPTIONS preflight
+app.options('*', cors({
+  origin: allowedOrigins,
+  credentials: true
 }));
 
 app.use(express.json());    // All the requests coming to the server will be parsed through the json method
@@ -133,6 +139,7 @@ app.listen(port,()=>{
     console.log(`Server is runnning on http://localhost:${port} 🛜`)
 
 })
+
 
 
 
