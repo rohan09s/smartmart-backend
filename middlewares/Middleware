@@ -1,0 +1,1 @@
+Middleware is the function that is executed before executing the controller function of any route
