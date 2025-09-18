@@ -95,7 +95,7 @@ await connectDB()
 await connectCloudinary()
 
 // Allow Multiple Origins
-const allowedOrigins = ['http://localhost:5173']
+const allowedOrigins = ['http://localhost:5173', 'https://smartmart-8xwu.onrender.com']
 
 
 app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks)
@@ -131,4 +131,5 @@ app.listen(port,()=>{
     console.log(`Server is runnning on http://localhost:${port} 🛜`)
 
 })
+
 
